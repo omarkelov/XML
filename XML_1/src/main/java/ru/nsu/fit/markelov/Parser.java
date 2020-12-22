@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -59,8 +60,8 @@ public class Parser {
         }
     }
 
-    public Map<String, Person> getIdMap() {
-        return idMap;
+    public Collection<Person> getIdMap() {
+        return idMap.values();
     }
 
     private String normalizeSpace(String str) {
@@ -263,7 +264,7 @@ public class Parser {
             }
         }
 
-        for (var person : idMap.values()) {
+        for (Person person : idMap.values()) {
             if (person.isFullNameSet()) {
                 if (!fullNameMap.containsKey(person.getFullName())) {
                     fullNameMap.put(person.getFullName(), person);
@@ -297,7 +298,7 @@ public class Parser {
 
             Set<String> ids = collisionFullNameToIdsMap.get(fullName);
             if (ids == null) {
-                collisionFullNameToIdsMap.put(fullName, new TreeSet<>() {{add(id);}});
+                collisionFullNameToIdsMap.put(fullName, new TreeSet<String>() {{add(id);}});
             } else {
                 ids.add(id);
             }
@@ -599,7 +600,7 @@ public class Parser {
         }
 
         int i = 0;
-        for (var tag : tags.entrySet()) {
+        for (Map.Entry<String, Set<String>> tag : tags.entrySet()) {
             System.out.print(++i + ": " + tag.getKey() + " ");
             System.out.println(tag.getValue());
         }
@@ -646,12 +647,12 @@ public class Parser {
             e.printStackTrace();
         }
 
-        for (var tagName : currentTagNames) {
+        for (String tagName : currentTagNames) {
             System.out.println(tagName);
         }
 
         int i = 0;
-        for (var tag : tags.entrySet()) {
+        for (Map.Entry<String, Tag> tag : tags.entrySet()) {
             System.out.print(++i + ": " + tag.getKey() + " | ");
             System.out.println(tag.getValue());
         }
