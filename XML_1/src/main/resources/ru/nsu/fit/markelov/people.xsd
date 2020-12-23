@@ -1,0 +1,74 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			xmlns:ppl="http://fit.nsu.ru/people"
+		    targetNamespace="http://fit.nsu.ru/people">
+
+	<xsd:simpleType name="name-type">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="\w+\s\w+"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="gender-type">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Male"/>
+			<xsd:enumeration value="Female"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="ref-type">
+		<xsd:attribute name="id" type="xsd:IDREF" use="required"/>
+	</xsd:complexType>
+
+	<xsd:complexType name="parents-type">
+		<xsd:sequence>
+			<xsd:element name="father" type="ppl:ref-type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="mother" type="ppl:ref-type" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="sons-type">
+		<xsd:sequence>
+			<xsd:element name="son" type="ppl:ref-type" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="daughters-type">
+		<xsd:sequence>
+			<xsd:element name="daughter" type="ppl:ref-type" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="brothers-type">
+		<xsd:sequence>
+			<xsd:element name="brother" type="ppl:ref-type" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="sisters-type">
+		<xsd:sequence>
+			<xsd:element name="sister" type="ppl:ref-type" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="person-type">
+		<xsd:sequence>
+			<xsd:element name="spouse" type="ppl:ref-type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="parents" type="ppl:parents-type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="sons" type="ppl:sons-type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="daughters" type="ppl:daughters-type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="brothers" type="ppl:brothers-type" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="sisters" type="ppl:sisters-type" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:ID" use="required"/>
+		<xsd:attribute name="name" type="ppl:name-type" use="required"/>
+		<xsd:attribute name="gender" type="ppl:gender-type" use="required"/>
+	</xsd:complexType>
+
+	<xsd:element name="people">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="person" type="ppl:person-type" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

@@ -69,7 +69,7 @@ public class Parser {
     }
 
     private void parseFileToPersonList() {
-        try (InputStream inputStream = new FileInputStream("C:\\people.xml")) {
+        try (InputStream inputStream = new FileInputStream("src\\main\\resources\\ru\\nsu\\fit\\markelov\\people.xml")) {
             XMLInputFactory streamFactory = XMLInputFactory.newInstance();
             XMLStreamReader reader = streamFactory.createXMLStreamReader(inputStream);
 

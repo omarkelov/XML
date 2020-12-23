@@ -38,6 +38,8 @@ public class Marshaller {
         }};
 
         marshal(people);
+
+        System.out.println("Marshalling finished");
     }
 
     private void fillMap() {

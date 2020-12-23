@@ -1,0 +1,8 @@
+﻿th, td {
+    padding: 5px;
+    border: 1px solid black;
+}
+
+tr:nth-child(even) {
+    background: rgba(0, 0, 0, 0.1);
+}

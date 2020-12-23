@@ -1,9 +1,8 @@
-package ru.nsu.fit.markelov;
+package ru.nsu.fit.markelov.debug;
 
 import org.xml.sax.SAXException;
 import ru.nsu.fit.markelov.xmlbeans.BrothersXML;
 import ru.nsu.fit.markelov.xmlbeans.DaughtersXML;
-import ru.nsu.fit.markelov.xmlbeans.ParentsXML;
 import ru.nsu.fit.markelov.xmlbeans.PeopleXML;
 import ru.nsu.fit.markelov.xmlbeans.PersonXML;
 import ru.nsu.fit.markelov.xmlbeans.RefIdXML;
