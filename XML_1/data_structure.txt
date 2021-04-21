@@ -1,0 +1,32 @@
+people [count]
+	person [name, id]
+		id [value]
+
+		firstname [value] ! <firstname>---Name---</firstname>
+		surname [value]
+		family-name []
+		fullname []
+			first []
+			family []
+
+		gender [value]
+
+		spouce [value] <spouce value="---FullName---"/> <spouce/> <spouce value="NONE"/>
+			husband [value] <husband value="---id---"/>
+			wife [value] <wife value="---id---"/>
+
+		parent [value] ! <parent value="P383387"/> <parent value="UNKNOWN"/> ! <parent>UNKNOWN</parent> - no real fullnames as text - only UNKNOWN
+			father [] <father>---FullName---</father>
+			mother [] <mother>---FullName---</mother>
+
+		children [] - (no need to parse)
+			child [] <child>---FullName---</child>
+			son [id]
+			daughter [id]
+
+		siblings [val] <siblings val="P398970 P398971"/>
+			brother [] <brother>---FullName---</brother>
+			sister [] <sister>---FullName---</sister>
+
+		siblings-number [value]
+		children-number [value]
