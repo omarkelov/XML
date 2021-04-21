@@ -38,3 +38,6 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+XML_1/src/main/resources/ru/nsu/fit/markelov/people.html
+XML_1/src/main/resources/ru/nsu/fit/markelov/people_strict.xml
