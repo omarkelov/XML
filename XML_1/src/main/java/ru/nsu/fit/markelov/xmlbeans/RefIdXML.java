@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "spouse-type")
+@XmlType(name = "ref-type")
 public class RefIdXML {
 
     @XmlAttribute(name = "id", required = true)
